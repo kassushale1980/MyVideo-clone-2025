@@ -35,8 +35,26 @@ function RowList() {
                 <Row title="TV Shows"
       fetchUrl={requests.fetchTvShows}
       isLargeRow={false}/>
-      <Row title="Search"
-      fetchUrl={requests.fetchSearch}
+      <Row title="Animation"
+      fetchUrl={requests.fetchAnimation}
+      isLargeRow={false}/>
+      <Row title="Music"
+      fetchUrl={requests.fetchMusic}
+      isLargeRow={false}/>
+      <Row title="Family"
+      fetchUrl={requests.fetchFamily}
+      isLargeRow={false}/>
+      <Row title="Science Fiction"
+      fetchUrl={requests.fetchScienceFiction}
+      isLargeRow={false}/>
+      <Row title="UPCOMING"
+      fetchUrl={requests.fetchUPCOMING}
+      isLargeRow={false}/>
+      <Row title="Popular"
+      fetchUrl={requests.fetchPopular}
+      isLargeRow={false}/>
+      <Row title="Now Playing"
+      fetchUrl={requests.fetchNowPlaying}
       isLargeRow={false}/>
     
     

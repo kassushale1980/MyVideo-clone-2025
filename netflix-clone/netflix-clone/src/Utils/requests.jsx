@@ -9,8 +9,13 @@ const requests = {
   fetchRomanceMovies: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
   fetchDocumentaries: `/discover/movie?api_key=${API_KEY}&with_genres=99`,
   fetchTvShows: `/discover/tv?api_key=${API_KEY}&with_genres=10765`,
-  fetchSearch: `/search/multi?api_key=${API_KEY}&language=en-US&query=`, // Note: Append search query after '='
- 
+  fetchAnimation: `/discover/movie?api_key=${API_KEY}&with_genres=16`,
+  fetchMusic: `/discover/movie?api_key=${API_KEY}&with_genres=10402`,
+  fetchFamily: `/discover/movie?api_key=${API_KEY}&with_genres=10751`,
+  fetchScienceFiction: `/discover/movie?api_key=${API_KEY}&with_genres=878`,
+  fetchUPCOMING: `/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`,
+  fetchPopular: `/movie/popular?api_key=${API_KEY}&language=en-US&page=1`,
+  fetchNowPlaying: `/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`,
   
 };
 
