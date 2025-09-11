@@ -8,6 +8,8 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState("");
   const base_url = "https://image.tmdb.org/t/p/original/";
+  const rowRef = React.useRef(null);
+   
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,6 +39,15 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
     }
   };
 
+ // 👇 scroll function
+  const scroll = (direction) => {
+    if (!rowRef.current) return;
+    const { clientWidth } = rowRef.current;
+    const scrollAmount = direction === "left" ? -clientWidth : clientWidth;
+    rowRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  };
+
+
   const opts = {
     height: "390",
     width: "100%",
@@ -48,7 +59,14 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
   return (
     <div className="row">
       <h1>{title}</h1>
-      <div className="row_posters">
+
+    
+      <button className="scroll-btn left" onClick={() => scroll("left")}>
+        ‹
+      </button>
+
+
+      <div className="row_posters" ref={rowRef}>
         {movies.map((movie, index) =>
           (isLargeRow ? movie.poster_path : movie.backdrop_path) ? (
             <img
@@ -64,10 +82,16 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
         )}
       </div>
 
+ <button className="scroll-btn right" onClick={() => scroll("right")}>
+        ›
+      </button>
+        
+
       <div style={{ padding: "40px" }}>
         {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
       </div>
     </div>
+
   );
 };
 
